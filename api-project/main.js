@@ -1,13 +1,13 @@
 import './style.css';
-
-const APIFilter = "https://api.disneyapi.dev/character";
-async function GetCharacter(APIFilter){
+const URL = "https://api.disneyapi.dev/character";
+async function GetCharacter(){
   try {
-    const response = await fetch(APIFilter);
-    const data = await response.json();
-    document.getElementById("api-response").textContent = data.films;}
+    const response = await fetch(URL);
+    const stuff = await response.json();
+   const answer = stuff.data.forEach((name)=> console.log(name));  
+    const names = stuff.data.filter((movie) => movie.films.includes("Hercules") )
+    console.log(names)}
     catch (error) {
-      console.log(error);
-    }
-  }
-GetCharacter(APIFilter)
+      console.log(error);}}
+GetCharacter(URL)
+
