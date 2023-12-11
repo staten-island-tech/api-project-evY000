@@ -4,9 +4,8 @@ async function GetCharacter(){
   try {
     const response = await fetch(URL);
     const stuff = await response.json();
-   const answer = stuff.data.forEach((name)=> console.log(name));  
-    const names = stuff.data.filter((movie) => movie.films.includes("Hercules") )
-    console.log(names)}
+   //const answer = stuff.info.data.films.filter((name)=> console.log(name.info.data.films.includes("Hercules")));  
+    console.log(stuff)}
     catch (error) {
       console.log(error);}}
 GetCharacter(URL)
