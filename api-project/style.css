@@ -94,3 +94,24 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+.christmas{
+ --primary: red;
+ --secondary: limegreen;
+ font-family: cursive;
+}
+.halloween{
+  --primary:orange;
+  --secondary:black;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.normal{
+  --primary:#242424;
+  --secondary:rgb(240, 208, 208);
+  font-family: 'Times New Roman', Times, serif;
+}
+body{
+  background-color: var(--primary);
+  color:var(--secondary)
+
+}
