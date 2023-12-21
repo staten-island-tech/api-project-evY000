@@ -25,8 +25,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+    min-width: 320px;
   min-height: 100vh;
 }
 
@@ -63,7 +62,7 @@ h1 {
   color: #888;
 }
 
-button {
+.button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -73,6 +72,9 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  width: 200px;
+  height: 125px;
+  background-color: var(--button);
 }
 button:hover {
   border-color: #646cff;
@@ -95,23 +97,30 @@ button:focus-visible {
   }
 }
 .christmas{
- --primary: red;
- --secondary: limegreen;
+ --primary: rgb(245, 74, 74);
+ --secondary: rgb(65, 224, 65);
+ --button: rgb(75, 161, 82);
  font-family: cursive;
 }
 .halloween{
-  --primary:orange;
-  --secondary:black;
+  --primary:rgb(212, 154, 46);
+  --secondary:rgb(15, 14, 14);
+  --button :rgb(235, 235, 235); 
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .normal{
   --primary:#242424;
   --secondary:rgb(240, 208, 208);
+  --button :rgb(216, 96, 96);
   font-family: 'Times New Roman', Times, serif;
 }
 body{
   background-color: var(--primary);
   color:var(--secondary)
 
+}
+input{
+  height: 40px;
+  width: 200px;
 }

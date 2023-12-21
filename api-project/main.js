@@ -1,6 +1,6 @@
 import './style.css';
 const DOMSelectors = {
-  Thing : document.getElementById("card"),
+  Thing : document.getElementById("app"),
   Christmas: document.querySelector('#christmas'),
   body: document.querySelector('#body'),
   Halloween: document.querySelector('#halloween'),
@@ -15,15 +15,18 @@ async function GetInput(){
     NameSearch = `https://api.disneyapi.dev/character?name=${DOMSelectors.Input}`
     const response = await fetch(NameSearch)
     const stuff = await response.json();  
-    stuff.data.forEach((card)=> {
+    stuff.data.forEach((card)=> {ID.sort(card);
       const FirstName = card.films
       const LastName = card.name
       const Image = card.imageUrl
+      const ID = [card._id]
+      ID.sort(card);
       const card2 = ` <div class = "Card">
       <h1> ${FirstName} </h1>
       <h2> ${LastName} </h2> 
-      <img class ="imgs" src="${Image}"</div>`
-      DOMSelectors.Thing.insertAdjacentHTML('afterend', card2);
+      <img class ="imgs" src="${Image}"
+      <h3>#${ID} </h3> </div>`
+      DOMSelectors.Thing.insertAdjacentHTML('beforeend', card2);
 })}
   catch(error) {
     console.log(error);}} 
