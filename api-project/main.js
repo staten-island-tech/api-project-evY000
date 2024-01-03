@@ -6,34 +6,34 @@ const DOMSelectors = {
   Halloween: document.querySelector('#halloween'),
   Input : document.querySelector('input'),
 }
-const Link = "https://api.disneyapi.dev/character";
+//For Characters withj multiple words add %20 in between
+/* const Link = "https://api.disneyapi.dev/character";
 const Page2 = "https://api.disneyapi.dev/character?page=2&pageSize=50";
-const Mouse = "https://api.disneyapi.dev/character?name=Mickey%20Mouse";
-let NameSearch = "https://api.disneyapi.dev/character?name=";
+const Mouse = "https://api.disneyapi.dev/character?name=Mickey%20Mouse"; */
 async function GetInput(){
   try {
-    NameSearch = `https://api.disneyapi.dev/character?name=${DOMSelectors.Input}`
-    const response = await fetch(NameSearch)
+     let NameSearch = `https://api.disneyapi.dev/character?name=${DOMSelectors.Input}`
+     const response = await fetch(NameSearch);
     const stuff = await response.json();  
-    stuff.data.forEach((card)=> {ID.sort(card);
+    stuff.data.forEach((card)=> {card.filter == DOMSelectors.Input;
       const FirstName = card.films
       const LastName = card.name
       const Image = card.imageUrl
       const ID = [card._id]
-      ID.sort(card);
-      const card2 = ` <div class = "Card">
+      const cards = `<div class = "Card">
       <h1> ${FirstName} </h1>
       <h2> ${LastName} </h2> 
       <img class ="imgs" src="${Image}"
       <h3>#${ID} </h3> </div>`
-      DOMSelectors.Thing.insertAdjacentHTML('beforeend', card2);
+      DOMSelectors.Thing.insertAdjacentHTML('beforeend', cards); 
+      console.log(NameSearch)
+      
 })}
   catch(error) {
-    console.log(error);}} 
+    console.log('error');}} 
  GetInput()  
 
-  
-
+    
  /* async function GetCharacter(){
   try {
     const response = await fetch(Link);
@@ -46,8 +46,7 @@ async function GetInput(){
       const Image = card.imageUrl
     const card2 = ` <div class = "Card">
     <h1> ${FirstName} </h1>
-    <h2> ${LastName} </h2> 
-  
+    <h2> ${LastName} </h2>  
     <img class ="imgs" src="${Image}"</div>`
     DOMSelectors.Thing.insertAdjacentHTML('afterend', card2);
     })
@@ -95,5 +94,4 @@ DOMSelectors.Halloween.addEventListener("click", function(){
   catch (error){
     console.log(error);}}
 TheMouse(Mouse)
-
  */
