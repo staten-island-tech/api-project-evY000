@@ -4,18 +4,22 @@ const DOMSelectors = {
   Christmas: document.querySelector('#christmas'),
   body: document.querySelector('#body'),
   Halloween: document.querySelector('#halloween'),
-  Input : document.querySelector('input'),
+  Input : document.querySelector('#input'),
 }
-//For Characters withj multiple words add %20 in between
-/* const Link = "https://api.disneyapi.dev/character";
-const Page2 = "https://api.disneyapi.dev/character?page=2&pageSize=50";
-const Mouse = "https://api.disneyapi.dev/character?name=Mickey%20Mouse"; */
+function information(){
+  DOMSelectors.Input.addEventListener("submit", function(){
+    const Receive = Input;
+    console.log(Receive)
+  })
+}   
+information()
 async function GetInput(){
   try {
      let NameSearch = `https://api.disneyapi.dev/character?name=${DOMSelectors.Input}`
-     const response = await fetch(NameSearch);
+     let Link = "https://api.disneyapi.dev/character?page=1&pageSize=10000000"
+     const response = await fetch(Link);
     const stuff = await response.json();  
-    stuff.data.forEach((card)=> {card.filter == DOMSelectors.Input;
+    stuff.data.forEach((card)=> {
       const FirstName = card.films
       const LastName = card.name
       const Image = card.imageUrl
@@ -25,16 +29,38 @@ async function GetInput(){
       <h2> ${LastName} </h2> 
       <img class ="imgs" src="${Image}"
       <h3>#${ID} </h3> </div>`
-      DOMSelectors.Thing.insertAdjacentHTML('beforeend', cards); 
-      console.log(NameSearch)
-      
+      DOMSelectors.Thing.insertAdjacentHTML('beforeend', cards);   
 })}
   catch(error) {
     console.log('error');}} 
  GetInput()  
+DOMSelectors.Christmas.addEventListener("click", function(){
+  if (document.body.classList.contains("normal")){
+     document.body.classList.add("christmas")
+     document.body.classList.remove("normal");
+     document.body.classList.remove("halloween");
+  } else{
+        document.body.classList.add("normal");
+        document.body.classList.remove("christmas");}
+        document.body.classList.remove("halloween");
+     });
+DOMSelectors.Halloween.addEventListener("click", function(){
+      if (document.body.classList.contains("normal")){
+         document.body.classList.add("halloween")
+         document.body.classList.remove("normal");
+         document.body.classList.remove("christmas");
+      } else{
+            document.body.classList.add("normal");
+            document.body.classList.remove("halloween");}
+            document.body.classList.remove("christmas");
+         });
+//For Characters withj multiple words add %20 in between
+/* const Link = "https://api.disneyapi.dev/character";
+const Page2 = "https://api.disneyapi.dev/character?page=2&pageSize=50";
+const Mouse = "https://api.disneyapi.dev/character?name=Mickey%20Mouse"; */
 
-    
- /* async function GetCharacter(){
+
+/* async function GetCharacter(){
   try {
     const response = await fetch(Link);
     const response2 = await fetch(Page2)
@@ -64,28 +90,8 @@ async function GetInput(){
     catch (error) {
       console.log(error);}} */
 /* GetCharacter(Link)  */
-DOMSelectors.Christmas.addEventListener("click", function(){
-  if (document.body.classList.contains("normal")){
-     document.body.classList.add("christmas")
-     document.body.classList.remove("normal");
-     document.body.classList.remove("halloween");
-  } else{
-        document.body.classList.add("normal");
-        document.body.classList.remove("christmas");}
-        document.body.classList.remove("halloween");
 
-     });
-DOMSelectors.Halloween.addEventListener("click", function(){
-      if (document.body.classList.contains("normal")){
-         document.body.classList.add("halloween")
-         document.body.classList.remove("normal");
-         document.body.classList.remove("christmas");
-      } else{
-            document.body.classList.add("normal");
-            document.body.classList.remove("halloween");}
-            document.body.classList.remove("christmas");
-    
-         });
+
 /* async function TheMouse(){
   try{
   const GetMouse = await fetch(Mouse);
