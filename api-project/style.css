@@ -83,8 +83,8 @@ Image{
 }
 .christmas{
  --primary: rgb(245, 74, 74);
- --secondary: rgb(74, 137, 74);
- --button: rgb(75, 161, 82);
+ --secondary: rgb(83, 59, 83);
+ --button: rgb(63, 99, 59);
  font-family: cursive;
 
 }
