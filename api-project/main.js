@@ -6,29 +6,22 @@ const DOMSelectors = {
   Halloween: document.querySelector('#halloween'),
   Input : document.querySelector('#input'),
 }
-function information(){
-  DOMSelectors.Input.addEventListener("submit", function(){
-    const Receive = Input;
-    console.log(Receive)
-  })
-}   
-information()
+ 
 async function GetInput(){
   try {
      let NameSearch = `https://api.disneyapi.dev/character?name=${DOMSelectors.Input}`
-     let Link = "https://api.disneyapi.dev/character?page=1&pageSize=10000000"
+     let Link = "https://api.disneyapi.dev/character?page=1"
+     // Set Link &pageSize=10000000 when all characters
      const response = await fetch(Link);
     const stuff = await response.json();  
     stuff.data.forEach((card)=> {
       const FirstName = card.films
       const LastName = card.name
       const Image = card.imageUrl
-      const ID = [card._id]
       const cards = `<div class = "Card">
       <h1> ${FirstName} </h1>
       <h2> ${LastName} </h2> 
-      <img class ="imgs" src="${Image}"
-      <h3>#${ID} </h3> </div>`
+      <img class ="imgs" src="${Image}" </div>`
       DOMSelectors.Thing.insertAdjacentHTML('beforeend', cards);   
 })}
   catch(error) {
