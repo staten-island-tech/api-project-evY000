@@ -16,6 +16,7 @@ function something(){
       GetInput()
 })}
 something()
+
 async function GetInput(){
   try {
      /* let NameSearch = `https://api.disneyapi.dev/character?name=${DOMSelectors.Input}` 
@@ -37,10 +38,16 @@ async function GetInput(){
       <img class ="imgs" src="${Image}" </div>`
       DOMSelectors.Thing.insertAdjacentHTML('beforeend', cards);
       console.log(Link)
-  }
+     
+  } 
+
 })}
   catch(error) {
-    console.log('error');}}  
+    console.log('Error')
+  
+      if (card.name != user.valueOf()){
+        console.log("Nothing Found")
+        }};}
 
 
 DOMSelectors.Christmas.addEventListener("click", function(){
