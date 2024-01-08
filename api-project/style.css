@@ -124,11 +124,11 @@ body{
   font-size: 10px;
   display: grid;
 }
-.inputs{
+.inputs, .submits{
   height: 50px;
   width: 200px;
 }
-.button{
+.button, .submit{
 width: 150px;
 height: 70px;
 }

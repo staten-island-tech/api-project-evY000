@@ -7,13 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
   </head>
-  <h1 class="header">Welcome to Evan's Disney API Website.</h1>
+  <form action ='' id ="form">
+  <h1 class="header" tabindex="1">Welcome to Evan's Disney API Website.</h1>
   <body class="normal">
-  <button id='christmas' class="button"> Christmas </button>
-  <button id='halloween' class="button">Halloween</button>
-  <label for="input">Type Disney Character</label>
-  <input type="text" class="inputs" id="input"> </input>
+  <button type="button" tabindex="2" id='christmas' class="button"> Christmas </button>
+  <button type="button" tabindex="3" id='halloween' class="button">Halloween</button>
+
+  <label tabindex="4" for="input">Type Disney Character</label>
+  <input tabindex="5" type="text" class="inputs" id="input"> </input>
+  <input tabindex="6" type="submit" class="submit" value="Submit" id="submit"> </input>
     <div id="app"></div>
     <script type="module" src="/main.js"></script>
+  </form>
   </body>
 </html>
