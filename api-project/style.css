@@ -83,9 +83,10 @@ Image{
 }
 .christmas{
  --primary: rgb(245, 74, 74);
- --secondary: rgb(65, 224, 65);
+ --secondary: rgb(74, 137, 74);
  --button: rgb(75, 161, 82);
  font-family: cursive;
+
 }
 .halloween{
   --primary:rgb(212, 154, 46);
@@ -132,5 +133,5 @@ width: 150px;
 height: 70px;
 }
 h1{
-  color: salmon;
+  color: var(--secondary)
 }
