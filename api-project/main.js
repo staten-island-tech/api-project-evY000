@@ -1,4 +1,4 @@
-import './style.css';
+
 const DOMSelectors = {
   Thing : document.getElementById("app"),
   Christmas: document.querySelector('#christmas'),
