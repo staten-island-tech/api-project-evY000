@@ -13,19 +13,21 @@ function something(){
       event.preventDefault()
       let user = DOMSelectors.Input.value;
       console.log(user)
+      GetInput()
 })}
 something()
 async function GetInput(){
   try {
      /* let NameSearch = `https://api.disneyapi.dev/character?name=${DOMSelectors.Input}` 
      console.log(NameSearch) */
-     let Link = "https://api.disneyapi.dev/character?page=1"
+    /*  let Link =`https://api.disneyapi.dev/character?name=${DOMSelectors.Input}` */
+
+     let Link = "https://api.disneyapi.dev/character?page=1" 
      // Set Link &pageSize=10000000 when all characters
      const response = await fetch(Link);
     const stuff = await response.json();  
-
     let user = DOMSelectors.Input.value;
-    stuff.data.forEach((card)=> {card
+    stuff.data.forEach((card)=> { if (card.name === user.valueOf()){
       const FirstName = card.films
       const LastName = card.name
       const Image = card.imageUrl
@@ -33,11 +35,12 @@ async function GetInput(){
       <h1> ${FirstName} </h1>
       <h2> ${LastName} </h2> 
       <img class ="imgs" src="${Image}" </div>`
-      DOMSelectors.Thing.insertAdjacentHTML('beforeend', cards); 
+      DOMSelectors.Thing.insertAdjacentHTML('beforeend', cards);
+      console.log(Link)
+  }
 })}
   catch(error) {
-    console.log('error');}} 
- GetInput()  
+    console.log('error');}}  
 
 
 DOMSelectors.Christmas.addEventListener("click", function(){
