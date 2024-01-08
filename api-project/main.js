@@ -22,8 +22,7 @@ async function GetInput(){
      console.log(NameSearch) */
     /*  let Link =`https://api.disneyapi.dev/character?name=${DOMSelectors.Input}` */
 
-     let Link = "https://api.disneyapi.dev/character?page=1" 
-     // Set Link &pageSize=10000000 when all characters
+     let Link = "https://api.disneyapi.dev/character?page=1&pageSize=10000000 " 
      const response = await fetch(Link);
     const stuff = await response.json();  
     let user = DOMSelectors.Input.value;
