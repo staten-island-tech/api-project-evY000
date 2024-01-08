@@ -36,9 +36,21 @@ async function GetInput(){
       <h2> ${LastName} </h2> 
       <img class ="imgs" src="${Image}" </div>`
       DOMSelectors.Thing.insertAdjacentHTML('beforeend', cards);
-      console.log(Link)
-     
-  } 
+      /* console.log(Link)
+      stuff.data.forEach((card)=> {
+
+        let user = DOMSelectors.Input.value;
+        stuff.data.forEach((card)=> {card
+          const FirstName = card.films
+          const LastName = card.name
+          const Image = card.imageUrl
+          const cards = `<div class = "Card">
+          const cards = `<div tabindex ="7" class =  "Card">
+          <h1> ${FirstName} </h1>
+          <h2> ${LastName} </h2> 
+          <img class ="imgs" src="${Image}" </div>`
+          DOMSelectors.Thing.insertAdjacentHTML('beforeend', cards);
+  }  */
 
 })}
   catch(error) {
