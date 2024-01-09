@@ -15,11 +15,8 @@ async function Values(){
     const stuff = await response.json();  
     DOMSelectors.form.addEventListener("submit",function(event){
       event.preventDefault()
-      
    let user = DOMSelectors.Input.value;
       console.log(user)
-   
-
 
     const Upper = user.toUpperCase();
 
@@ -31,8 +28,9 @@ async function Values(){
      <h1> ${FirstName} </h1>
      <h2> ${LastName} </h2> 
      <img class ="imgs" src="${Image}" </div>`
+     DOMSelectors.Thing.innerHTML = ''
      DOMSelectors.Thing.insertAdjacentHTML('beforeend', cardsfilter)
-    DOMSelectors.Thing.remove()}})})}
+   }})})}
      catch(error) {
       console.log('Error')}}
 /*   if (card.name.toUpperCase != Upper.valueOf()){
