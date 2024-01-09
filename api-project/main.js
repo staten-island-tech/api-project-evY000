@@ -19,7 +19,7 @@ async function Values(){
       console.log(user)
 
     const Upper = user.toUpperCase();
-
+    DOMSelectors.Thing.innerHTML = ''
     stuff.data.filter((card)=> { if (card.name.toUpperCase() === Upper.valueOf()){ 
      const FirstName = card.films
      const LastName = card.name
@@ -28,7 +28,7 @@ async function Values(){
      <h1> ${FirstName} </h1>
      <h2> ${LastName} </h2> 
      <img class ="imgs" src="${Image}" </div>`
-     DOMSelectors.Thing.innerHTML = ''
+     
      DOMSelectors.Thing.insertAdjacentHTML('beforeend', cardsfilter)
    }})})}
      catch(error) {
