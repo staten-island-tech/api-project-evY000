@@ -8,26 +8,55 @@ const DOMSelectors = {
   Submit : document.querySelector("submit"),
   form: document.getElementById("form"),
 }
-function something(){
-  DOMSelectors.form.addEventListener("submit",function(event){
+let Link = "https://api.disneyapi.dev/character?page=1&pageSize=10000000 "
+async function Values(){
+  try {
+    const response = await fetch(Link);
+    const stuff = await response.json();  
+    DOMSelectors.form.addEventListener("submit",function(event){
+      event.preventDefault()
+      
+   let user = DOMSelectors.Input.value;
+      console.log(user)
+   
+
+
+    const Upper = user.toUpperCase();
+
+    stuff.data.filter((card)=> { if (card.name.toUpperCase() === Upper.valueOf()){ 
+     const FirstName = card.films
+     const LastName = card.name
+     const Image = card.imageUrl
+     const cardsfilter = `<div tabindex ="7" class =  "Card">
+     <h1> ${FirstName} </h1>
+     <h2> ${LastName} </h2> 
+     <img class ="imgs" src="${Image}" </div>`
+     DOMSelectors.Thing.insertAdjacentHTML('beforeend', cardsfilter)
+    DOMSelectors.Thing.remove()}})})}
+     catch(error) {
+      console.log('Error')}}
+/*   if (card.name.toUpperCase != Upper.valueOf()){
+          console.log("Nothing Found")}}}
+           */
+ /*  DOMSelectors.form.addEventListener("submit",function(event){
       event.preventDefault()
       let user = DOMSelectors.Input.value;
-      console.log(user)
-      GetInput()
-})}
-something()
+      console.log(user) */
+      
+      
 
+
+Values()
+ GetInput() 
 async function GetInput(){
   try {
-     /* let NameSearch = `https://api.disneyapi.dev/character?name=${DOMSelectors.Input}` 
-     console.log(NameSearch) */
-    /*  let Link =`https://api.disneyapi.dev/character?name=${DOMSelectors.Input}` */
-
      let Link = "https://api.disneyapi.dev/character?page=1&pageSize=10000000 " 
      const response = await fetch(Link);
     const stuff = await response.json();  
+    
     let user = DOMSelectors.Input.value;
-    stuff.data.forEach((card)=> { if (card.name === user.valueOf()){
+     stuff.data.forEach((card) => {
+    /* stuff.data.filter((card)=> { if (card.name.toUpperCase() === Upper.valueOf()){ */
       const FirstName = card.films
       const LastName = card.name
       const Image = card.imageUrl
@@ -35,32 +64,18 @@ async function GetInput(){
       <h1> ${FirstName} </h1>
       <h2> ${LastName} </h2> 
       <img class ="imgs" src="${Image}" </div>`
-      DOMSelectors.Thing.insertAdjacentHTML('beforeend', cards);
-      /* console.log(Link)
-      stuff.data.forEach((card)=> {
+      DOMSelectors.Thing.insertAdjacentHTML('beforeend', cards)})}
+      /* stuff.data.filter((card) => { if (card.name.toUpperCase() != Upper.valueOf()){
+        DOMSelectors.Thing.insertAdjacentHTML('beforebegin',`<h1> Couldn't Find Anything </h1>`)
+        console.log(hi) */
+      
+    
 
-        let user = DOMSelectors.Input.value;
-        stuff.data.forEach((card)=> {card
-          const FirstName = card.films
-          const LastName = card.name
-          const Image = card.imageUrl
-          const cards = `<div class = "Card">
-          const cards = `<div tabindex ="7" class =  "Card">
-          <h1> ${FirstName} </h1>
-          <h2> ${LastName} </h2> 
-          <img class ="imgs" src="${Image}" </div>`
-          DOMSelectors.Thing.insertAdjacentHTML('beforeend', cards);
-  }  */
-
-})}
   catch(error) {
     console.log('Error')
-  
-      if (card.name != user.valueOf()){
+if (card.name.toUpperCase != Upper.valueOf()){
         console.log("Nothing Found")
         }};}
-
-
 DOMSelectors.Christmas.addEventListener("click", function(){
   if (document.body.classList.contains("normal")){
      document.body.classList.add("christmas")
@@ -128,5 +143,21 @@ const Mouse = "https://api.disneyapi.dev/character?name=Mickey%20Mouse"; */
     console.log(error);}}
 TheMouse(Mouse)
  */
+ /* console.log(Link)
+      stuff.data.forEach((card)=> {
 
- 
+        let user = DOMSelectors.Input.value;
+        stuff.data.forEach((card)=> {card
+          const FirstName = card.films
+          const LastName = card.name
+          const Image = card.imageUrl
+          const cards = `<div class = "Card">
+          const cards = `<div tabindex ="7" class =  "Card">
+          <h1> ${FirstName} </h1>
+          <h2> ${LastName} </h2> 
+          <img class ="imgs" src="${Image}" </div>`
+          DOMSelectors.Thing.insertAdjacentHTML('beforeend', cards);
+  }  */
+   /* let NameSearch = `https://api.disneyapi.dev/character?name=${DOMSelectors.Input}` 
+     console.log(NameSearch) */
+    /*  let Link =`https://api.disneyapi.dev/character?name=${DOMSelectors.Input}` */
