@@ -9,10 +9,10 @@ const DOMSelectors = {
   form: document.getElementById("form"),
 }
 let Link = "https://api.disneyapi.dev/character?page=1&pageSize=10000000 "
+const response = await fetch(Link);
+const stuff = await response.json();
 async function Values(){
-  try {
-    const response = await fetch(Link);
-    const stuff = await response.json();  
+  try {  
     DOMSelectors.form.addEventListener("submit",function(event){
       event.preventDefault()
    let user = DOMSelectors.Input.value;
@@ -21,6 +21,7 @@ async function Values(){
 
     const Upper = user.toUpperCase();
     DOMSelectors.Thing.innerHTML = ''
+    let things = 0
     stuff.data.filter((card)=> { if (card.name.toUpperCase() === Upper.valueOf()){ 
      const FirstName = card.films
      const LastName = card.name
@@ -29,12 +30,22 @@ async function Values(){
      <h1> ${FirstName} </h1>
      <h2> ${LastName} </h2> 
      <img class ="imgs" src="${Image}" </div>`
+     things += 1
      
      DOMSelectors.Thing.insertAdjacentHTML('beforeend', cardsfilter)
      
-   }})})}
+   } else if (things === 0) {
+      for (let i=0; i++; i<2;) {
+        console.log('Nothing Found')}
+    }
+  })})}
      catch(error) {
-      console.log('Error')}}
+      console.log(error)
+      if (card.name.toUpperCase != Upper.valueOf()){
+        console.log("Nothing Found")
+        console.log(error)
+      }
+    }}
 /*   if (card.name.toUpperCase != Upper.valueOf()){
           console.log("Nothing Found")}}}
            */
@@ -71,11 +82,13 @@ async function GetInput(){
       
     
 
-  catch(error) {
-    console.log('Error')
-if (card.name.toUpperCase != Upper.valueOf()){
-        console.log("Nothing Found")
-        }};}
+        catch(error) {
+          console.log(error)
+          if (card.name.toUpperCase != Upper.valueOf()){
+            console.log("Nothing Found")
+            console.log(error)
+          }
+        }};
 DOMSelectors.Christmas.addEventListener("click", function(){
   if (document.body.classList.contains("normal")){
      document.body.classList.add("christmas")
