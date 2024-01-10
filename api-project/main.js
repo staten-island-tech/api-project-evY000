@@ -17,6 +17,7 @@ async function Values(){
       event.preventDefault()
    let user = DOMSelectors.Input.value;
       console.log(user)
+      
 
     const Upper = user.toUpperCase();
     DOMSelectors.Thing.innerHTML = ''
@@ -30,6 +31,7 @@ async function Values(){
      <img class ="imgs" src="${Image}" </div>`
      
      DOMSelectors.Thing.insertAdjacentHTML('beforeend', cardsfilter)
+     
    }})})}
      catch(error) {
       console.log('Error')}}
