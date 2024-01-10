@@ -34,10 +34,8 @@ async function Values(){
      
      DOMSelectors.Thing.insertAdjacentHTML('beforeend', cardsfilter)
      
-   } else if (things === 0) {
-      for (let i=0; i++; i<2;) {
-        console.log('Nothing Found')}
-    }
+   } else {
+      console.log('Nothing Found')}
   })})}
      catch(error) {
       console.log(error)
