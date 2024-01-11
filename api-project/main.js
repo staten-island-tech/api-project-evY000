@@ -31,18 +31,20 @@ async function Values(){
      <h2> ${LastName} </h2> 
      <img class ="imgs" src="${Image}" </div>`
      things += 1
-     
      DOMSelectors.Thing.insertAdjacentHTML('beforeend', cardsfilter)
      
    } else {
+    for (let i = 1; i++; i<2) {
+      if (card.name.toUpperCase != Upper.valueOf()){
+         const responseerror =  `<h1> 'Couldn't Find Anything'</h1>`;
+       DOMSelectors.Thing.insertAdjacentHTML('beforeend', responseerror)
+     
+     }}
+      
       console.log('Nothing Found')}
   })})}
      catch(error) {
       console.log(error)
-      if (card.name.toUpperCase != Upper.valueOf()){
-        console.log("Nothing Found")
-        console.log(error)
-      }
     }}
 /*   if (card.name.toUpperCase != Upper.valueOf()){
           console.log("Nothing Found")}}}
