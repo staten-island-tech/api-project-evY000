@@ -10,19 +10,17 @@ const DOMSelectors = {
 }
 //"https://api.disneyapi.dev/character?page=1&pageSize=10000000
 let Link = "https://api.disneyapi.dev/character?page=1&pageSize=10000000"
-const response = await fetch(Link);
-const stuff = await response.json();
+
 async function Values(){
   try {  
+    const response = await fetch(Link);
+    const stuff = await response.json();
     DOMSelectors.form.addEventListener("submit",function(event){
       event.preventDefault()
    let user = DOMSelectors.Input.value;
       console.log(user)
-      
-
     const Upper = user.toUpperCase();
     DOMSelectors.Thing.innerHTML = ''
-
     stuff.data.filter((card)=> { if (card.name.toUpperCase() === Upper.valueOf()){ 
      const FirstName = card.films
      const LastName = card.name
@@ -64,8 +62,6 @@ async function GetInput(){
   try {
      const response = await fetch(Link);
     const stuff = await response.json();  
-    
-    let user = DOMSelectors.Input.value;
      stuff.data.forEach((card) => {
     /* stuff.data.filter((card)=> { if (card.name.toUpperCase() === Upper.valueOf()){ */
       const FirstName = card.films
@@ -73,8 +69,7 @@ async function GetInput(){
       const Image = card.imageUrl
       const cards = `<div tabindex ="7" class =  "Card">
       <h1> ${FirstName} </h1>
-      <h2> ${LastName} </h2> 
-     
+      <h2> ${LastName} </h2>
       <img class ="imgs" src="${Image}" </div>`
       DOMSelectors.Thing.insertAdjacentHTML('beforeend', cards)})}
       /* stuff.data.filter((card) => { if (card.name.toUpperCase() != Upper.valueOf()){
@@ -85,10 +80,7 @@ async function GetInput(){
 
         catch(error) {
           console.log(error)
-          if (card.name.toUpperCase != Upper.valueOf()){
-            console.log("Nothing Found")
-            console.log(error)
-          }
+         
         }};
 DOMSelectors.Christmas.addEventListener("click", function(){
   if (document.body.classList.contains("normal")){
@@ -114,8 +106,6 @@ DOMSelectors.Halloween.addEventListener("click", function(){
 /* const Link = "https://api.disneyapi.dev/character";
 const Page2 = "https://api.disneyapi.dev/character?page=2&pageSize=50";
 const Mouse = "https://api.disneyapi.dev/character?name=Mickey%20Mouse"; */
-
-
 /* async function GetCharacter(){
   try {
     const response = await fetch(Link);
