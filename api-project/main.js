@@ -8,7 +8,8 @@ const DOMSelectors = {
   Submit : document.querySelector("submit"),
   form: document.getElementById("form"),
 }
-let Link = "https://api.disneyapi.dev/character?page=1&pageSize=10000000 "
+//"https://api.disneyapi.dev/character?page=1&pageSize=10000000
+let Link = "https://api.disneyapi.dev/character?page=1&pageSize=10000000"
 const response = await fetch(Link);
 const stuff = await response.json();
 async function Values(){
@@ -21,7 +22,7 @@ async function Values(){
 
     const Upper = user.toUpperCase();
     DOMSelectors.Thing.innerHTML = ''
-    let things = 0
+
     stuff.data.filter((card)=> { if (card.name.toUpperCase() === Upper.valueOf()){ 
      const FirstName = card.films
      const LastName = card.name
@@ -30,18 +31,18 @@ async function Values(){
      <h1> ${FirstName} </h1>
      <h2> ${LastName} </h2> 
      <img class ="imgs" src="${Image}" </div>`
-     things += 1
+
      DOMSelectors.Thing.insertAdjacentHTML('beforeend', cardsfilter)
-     
-   } else {
-    for (let i = 1; i++; i<2) {
-      if (card.name.toUpperCase != Upper.valueOf()){
-         const responseerror =  `<h1> 'Couldn't Find Anything'</h1>`;
-       DOMSelectors.Thing.insertAdjacentHTML('beforeend', responseerror)
-     
-     }}
-      
-      console.log('Nothing Found')}
+    
+  
+  
+   } /* else {
+    for (let i = 0; i < 1; ){
+    (card.name.toUpperCase() != Upper.valueOf());{
+      const responseerror =  `<h1> Couldn't Find Anything</h1>`;
+        DOMSelectors.Thing.insertAdjacentHTML('beforeend', responseerror)}
+       
+     }} */
   })})}
      catch(error) {
       console.log(error)
@@ -61,7 +62,6 @@ Values()
  GetInput() 
 async function GetInput(){
   try {
-     let Link = "https://api.disneyapi.dev/character?page=1&pageSize=10000000 " 
      const response = await fetch(Link);
     const stuff = await response.json();  
     
@@ -74,6 +74,7 @@ async function GetInput(){
       const cards = `<div tabindex ="7" class =  "Card">
       <h1> ${FirstName} </h1>
       <h2> ${LastName} </h2> 
+     
       <img class ="imgs" src="${Image}" </div>`
       DOMSelectors.Thing.insertAdjacentHTML('beforeend', cards)})}
       /* stuff.data.filter((card) => { if (card.name.toUpperCase() != Upper.valueOf()){
